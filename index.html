@@ -1,0 +1,21 @@
+<form id="playgroundForm">
+  <label for="plugins">Plugins (comma-separated):</label>
+  <input type="text" id="plugins" name="plugins">
+  <label for="theme">Theme:</label>
+  <input type="text" id="theme" name="theme">
+  <label for="customSetting">Custom Setting:</label>
+  <input type="text" id="customSetting" name="customSetting">
+  <button type="button" onclick="generateLink()">Generate Link</button>
+</form>
+<p id="result"></p>
+
+<script>
+  function generateLink() {
+    const plugins = document.getElementById('plugins').value;
+    const theme = document.getElementById('theme').value;
+    const customSetting = document.getElementById('customSetting').value;
+    const baseUrl = 'https://playground.wordpress.net/';
+    const url = `${baseUrl}?plugins=${encodeURIComponent(plugins)}&theme=${encodeURIComponent(theme)}&custom_setting=${encodeURIComponent(customSetting)}`;
+    document.getElementById('result').innerText = `Generated Link: ${url}`;
+  }
+</script>
